@@ -26,7 +26,7 @@ func update_transform() -> void:
 	else:
 		scale.y = -size
 
-func shoot() -> void:
+func shoot(angle_offset: float = 0.0) -> void:
 	var bullet: PlayerBullet
 	if player.get_status_effect_time("fire") > 0.0:
 		bullet = fire_bullet_scene.instantiate()
@@ -58,7 +58,7 @@ func shoot() -> void:
 					bullet = bullet_scene.instantiate()
 		else:
 			bullet = bullet_scene.instantiate()
-	bullet.dir = Vector2(cos(rotation), sin(rotation))
+	bullet.dir = Vector2(cos(rotation + angle_offset), sin(rotation + angle_offset))
 	bullet.position = $BulletSpawnPoint.global_position
 	$/root/Main/Lawn.add_child(bullet)
 
@@ -75,7 +75,15 @@ func _process(delta: float) -> void:
 
 	if shoot_timer <= 0.0 and Input.is_action_pressed("shoot_primary"):
 		$/root/Main.play_sfx("Shoot")
-		shoot()
+		var selected: int = $/root/Main/HUD/Control/InventoryGUI.selected
+		var selected_item: InventoryItem = player.inventory.get_item(selected)
+		if selected_item and selected_item.id == "water_bottle_pack":
+			shoot(-PI / 12.0)
+			shoot(0.0)
+			shoot(PI / 12.0)
+			selected_item.uses_left -= 1
+		else:
+			shoot()
 		shoot_timer = SHOOT_COOLDOWN
 		return
 	

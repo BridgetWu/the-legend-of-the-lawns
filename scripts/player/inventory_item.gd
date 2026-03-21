@@ -17,6 +17,7 @@ const USE_COUNTS: Dictionary = {
 	"acidic_weedkiller" : 55,
 	"super_weedkiller" : 50,
 	"ultra_weedkiller" : 50,
+	"water_bottle_pack" : 50,
 }
 const DEFAULT_USE_COUNT: int = 1
 
@@ -45,6 +46,8 @@ const DISPLAY_NAMES: Dictionary = {
 	"acidic_weedkiller" : "acidic weedkiller",
 	"super_weedkiller" : "super duper weed-be-gone (tm)",
 	"ultra_weedkiller" : "ultra weed-be-gone (tm)",
+	"water_bottle_pack" : "water bottle pack",
+	"water_jug" : "water jug",
 }
 
 var id: String = ""
@@ -155,6 +158,8 @@ func use(main: Main) -> void:
 			main.player.fireworks_to_shoot += randi_range(6, 10)
 		# Ignore weapons
 		"weedkiller", "acidic_weedkiller", "super_weedkiller", "ultra_weedkiller":
+			return
+		"water_bottle_pack", "water_jug", "ice":
 			return
 		_:
 			pass

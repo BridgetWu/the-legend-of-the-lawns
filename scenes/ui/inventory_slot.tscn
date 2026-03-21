@@ -21,7 +21,7 @@ position = Vector2(25, 28)
 rotation = 0.5235988
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("2_ru537")
-animation = &"chocolate"
+animation = &"ice"
 
 [node name="Selected" type="Sprite2D" parent="." unique_id=1456701738]
 position = Vector2(24, -2)
