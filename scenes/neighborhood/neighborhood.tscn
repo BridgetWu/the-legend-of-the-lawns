@@ -1133,7 +1133,7 @@ price = 18
 position = Vector2(-88, 862)
 
 [node name="WaterBottlePack" parent="Store/StoreDisplay6" unique_id=710604155 instance=ExtResource("54_532a6")]
-position = Vector2(39, -15)
+position = Vector2(40, -15)
 scale = Vector2(0.55, 0.55)
 display_name = "water bottle pack"
 id = "water_bottle_pack"
@@ -1143,7 +1143,7 @@ buy_text = "To use it, select it in your inventory and then pick up the water gu
 price = 9
 
 [node name="WaterBottlePack2" parent="Store/StoreDisplay6" unique_id=1933638643 instance=ExtResource("54_532a6")]
-position = Vector2(23, -15)
+position = Vector2(25, -15)
 scale = Vector2(0.55, 0.55)
 display_name = "water bottle pack"
 id = "water_bottle_pack"
@@ -1153,12 +1153,25 @@ buy_text = "To use it, select it in your inventory and then pick up the water gu
 price = 9
 
 [node name="WaterJug" parent="Store/StoreDisplay6" unique_id=1233264846 instance=ExtResource("54_532a6")]
-position = Vector2(6, -15)
+position = Vector2(9, -15)
 display_name = "water jug"
 id = "water_jug"
+description = "Use this with your water gun to shoot bullets that explode upon impact.
+-> It's a jug of water, good for if you need refreshments for a party or if you need to stockpile resources for the apocalypse."
+buy_text = "To use it, select it in your inventory and then pick up the water gun. You will now shoot explosive water bullets from your water gun."
+price = 15
+
+[node name="WaterJug2" parent="Store/StoreDisplay6" unique_id=779481063 instance=ExtResource("54_532a6")]
+position = Vector2(-8, -15)
+display_name = "water jug"
+id = "water_jug"
+description = "Use this with your water gun to shoot bullets that explode upon impact.
+-> It's a jug of water, good for if you need refreshments for a party or if you need to stockpile resources for the apocalypse."
+buy_text = "To use it, select it in your inventory and then pick up the water gun. You will now shoot explosive water bullets from your water gun."
+price = 15
 
 [node name="Ice" parent="Store/StoreDisplay6" unique_id=854869466 instance=ExtResource("54_532a6")]
-position = Vector2(-10, -15)
+position = Vector2(-24, -15)
 scale = Vector2(0.65, 0.65)
 display_name = "ice"
 id = "ice"
