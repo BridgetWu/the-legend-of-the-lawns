@@ -28,9 +28,9 @@ var cooldown: int = 0
 @export var bonus_base: int = 2
 @export var max_bonus: int = 5
 ## How much they remove from the player's wage when they destroy each flower
-@export var flower_penalty: int = 0
+@export var flower_penalty: int = 1
 ## How much they remove from the player's wage when they destroy each hedge
-@export var hedge_penalty: int = 0
+@export var hedge_penalty: int = 1
 
 @export_group("Dialog")
 @export var use_female_voice: bool = false
