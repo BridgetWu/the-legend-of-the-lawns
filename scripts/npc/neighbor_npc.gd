@@ -25,7 +25,7 @@ var cooldown: int = 0
 @export_group("Wage Info")
 @export var wage: int = 10
 @export var max_wage: int = 20
-@export var bonus_base: int = 2
+@export var bonus_base: int = 1
 @export var max_bonus: int = 5
 ## How much they remove from the player's wage when they destroy each flower
 @export var flower_penalty: int = 1
@@ -55,7 +55,7 @@ func _ready() -> void:
 		knock_sound = get_node_or_null("/root/Main/Sfx/DoorKnock")
 
 func unavailable() -> bool:
-	return $/root/Main.current_level < level 
+	return $/root/Main.current_level < level or level < 0
 
 func reject() -> bool:
 	var main: Main = $/root/Main
