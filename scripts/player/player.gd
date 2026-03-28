@@ -131,7 +131,7 @@ func get_bonus_multiplier() -> float:
 			return 3.0
 
 func multiply_bonus(bonus: int) -> int:
-	return floori(float(bonus) * get_bonus_multiplier())
+	return ceili(float(bonus) * get_bonus_multiplier())
 
 func _ready() -> void:
 	$Lawnmower.hide()
