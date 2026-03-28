@@ -150,6 +150,9 @@ func drop_water_gun() -> void:
 		player.disable_water_gun()
 
 func water_gun_interaction() -> void:
+	if $/root/Main/HUD.cheat_console_open():
+		return
+
 	if water_gun_item.is_inside_tree():
 		pickup_water_gun()
 	else:

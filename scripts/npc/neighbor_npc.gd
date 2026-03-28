@@ -55,7 +55,7 @@ func _ready() -> void:
 		knock_sound = get_node_or_null("/root/Main/Sfx/DoorKnock")
 
 func unavailable() -> bool:
-	return $/root/Main.current_level < level or level < 0
+	return $/root/Main.current_level < level or (level < 0 and !is_test)
 
 func reject() -> bool:
 	var main: Main = $/root/Main
@@ -123,3 +123,7 @@ func load_from(data: Dictionary) -> void:
 	times_mowed = Save.get_val(data, "times_mowed", 0)
 	first_time = Save.get_val(data, "first_time", true)
 	cooldown = Save.get_val(data, "cooldown", 0)
+
+func enable() -> void:
+	disabled = false
+	$Area2D/CollisionShape2D.disabled = disabled

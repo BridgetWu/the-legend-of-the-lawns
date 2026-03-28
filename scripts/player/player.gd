@@ -484,11 +484,12 @@ func _process(delta: float) -> void:
 
 	# Drop lawn mower
 	dropped = false
-	if mower_exists():
-		dropped = drop_lawn_mower()
-	# Attempt to pick up lawn mower
-	if mower_exists() and !dropped:
-		pick_up_lawn_mower()
+	if !$/root/Main/HUD.cheat_console_open():
+		if mower_exists():
+			dropped = drop_lawn_mower()
+		# Attempt to pick up lawn mower
+		if mower_exists() and !dropped:
+			pick_up_lawn_mower()
 
 	# Update lawn mower
 	update_lawn_mower()
