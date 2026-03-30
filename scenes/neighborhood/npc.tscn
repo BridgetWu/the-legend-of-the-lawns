@@ -3,12 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://bq125ravxla2y" path="res://assets/textures/npcs/dad.png" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://xjnhr26uia08" path="res://assets/textures/npcs/cashier_guy.png" id="1_gtr5b"]
 [ext_resource type="Texture2D" uid="uid://c1mwbw0kon1tr" path="res://assets/textures/shadow.png" id="1_nh2m4"]
+[ext_resource type="Texture2D" uid="uid://hflox037e56h" path="res://assets/textures/npcs/carlos.png" id="1_p1bmu"]
 [ext_resource type="Texture2D" uid="uid://df4oiaw8vik6o" path="res://assets/textures/npcs/martin.png" id="2_6lv84"]
 [ext_resource type="Texture2D" uid="uid://bf6s87rxw88ot" path="res://assets/textures/npcs/mom.png" id="2_7n8xq"]
 [ext_resource type="Script" uid="uid://8ydcu6g7fdhb" path="res://scripts/npc/npc.gd" id="2_rv78h"]
 [ext_resource type="Texture2D" uid="uid://c51yfqi7bpdyc" path="res://assets/textures/npcs/spotty.png" id="3_4wlns"]
 [ext_resource type="Texture2D" uid="uid://c8063uw57s5x4" path="res://assets/textures/npcs/neighbors/mr_mcmoneypants.png" id="3_nosrm"]
+[ext_resource type="Texture2D" uid="uid://ddb5uy861jnlu" path="res://assets/textures/npcs/mr_gov_job_man.png" id="5_cw63i"]
 [ext_resource type="Texture2D" uid="uid://b235qhfs52p4u" path="res://assets/textures/npcs/robot.png" id="5_w4eg2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmd0u"]
+atlas = ExtResource("1_p1bmu")
+region = Rect2(0, 0, 18, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hp88"]
+atlas = ExtResource("1_p1bmu")
+region = Rect2(18, 0, 18, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bcc3h"]
 atlas = ExtResource("1_gtr5b")
@@ -40,6 +50,14 @@ region = Rect2(0, 0, 18, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tl2vt"]
 atlas = ExtResource("2_7n8xq")
+region = Rect2(18, 0, 18, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ff7o"]
+atlas = ExtResource("5_cw63i")
+region = Rect2(0, 0, 18, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix8r2"]
+atlas = ExtResource("5_cw63i")
 region = Rect2(18, 0, 18, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lv84"]
@@ -76,6 +94,17 @@ region = Rect2(51, 0, 17, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcuxl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmd0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hp88")
+}],
+"loop": true,
+"name": &"carlos",
+"speed": 3.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bcc3h")
@@ -118,6 +147,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"mom",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ff7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix8r2")
+}],
+"loop": true,
+"name": &"mr_gov_job_man",
 "speed": 2.0
 }, {
 "frames": [{

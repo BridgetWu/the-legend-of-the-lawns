@@ -23,7 +23,10 @@
 [ext_resource type="JSON" path="res://assets/dialog/npcs/dad_dialog.json" id="13_cvosm"]
 [ext_resource type="JSON" path="res://assets/dialog/npcs/mom_dialog.json" id="14_ixbld"]
 [ext_resource type="JSON" path="res://assets/dialog/npcs/spotty_dialog.json" id="15_4u6tr"]
+[ext_resource type="JSON" path="res://assets/dialog/npcs/mr_gov_job_man_dialog.json" id="16_suri1"]
+[ext_resource type="JSON" path="res://assets/dialog/npcs/carlos_dialog.json" id="17_cx8w8"]
 [ext_resource type="JSON" path="res://assets/dialog/neighbors/test_dialog.json" id="18_bmbxr"]
+[ext_resource type="AudioStream" uid="uid://bravg6u55evt" path="res://assets/audio/sfx/male_talk.wav" id="18_vcx27"]
 [ext_resource type="PackedScene" uid="uid://1fh3tiwr4hty" path="res://scenes/enemies/flowers/blue_flower.tscn" id="19_4hcni"]
 [ext_resource type="PackedScene" uid="uid://dl4gikurgk4pb" path="res://scenes/lawns/jim_lawn.tscn" id="19_dys3o"]
 [ext_resource type="JSON" path="res://assets/dialog/neighbors/bob_dialog.json" id="20_bmbxr"]
@@ -37,8 +40,8 @@
 [ext_resource type="PackedScene" uid="uid://bkn3rcq86gyqb" path="res://scenes/lawns/chloe_lawn.tscn" id="25_62p1y"]
 [ext_resource type="JSON" path="res://assets/dialog/neighbors/emily_dialog.json" id="26_yfbpo"]
 [ext_resource type="PackedScene" uid="uid://d32yummmyhpuj" path="res://scenes/neighborhood/job_board.tscn" id="28_wj70i"]
-[ext_resource type="JSON" path="res://assets/dialog/james_dialog.json" id="33_seem0"]
 [ext_resource type="JSON" path="res://assets/dialog/neighbors/chloe_dialog.json" id="34_7rdka"]
+[ext_resource type="JSON" path="res://assets/dialog/neighbors/james_dialog.json" id="35_suri1"]
 [ext_resource type="PackedScene" uid="uid://pff21d58ll8s" path="res://scenes/interactable/door.tscn" id="37_kcquo"]
 [ext_resource type="PackedScene" uid="uid://d2cgyyt8ay06h" path="res://scenes/lawns/george_lawn.tscn" id="37_lse0k"]
 [ext_resource type="Texture2D" uid="uid://brunwv4cwnhk8" path="res://assets/textures/decorations/photo.png" id="38_00oce"]
@@ -245,6 +248,24 @@ display_name = "Spotty the dog"
 can_talk = false
 dialog_json = ExtResource("15_4u6tr")
 
+[node name="MrGovJobMan" parent="NPCs" unique_id=170870513 instance=ExtResource("4_dcvy4")]
+position = Vector2(864, -40)
+animation = &"mr_gov_job_man"
+display_name = "Mr. Government Job Man"
+max_level = 2
+dialog_json = ExtResource("16_suri1")
+
+[node name="Carlos" parent="NPCs" unique_id=1535166678 instance=ExtResource("4_dcvy4")]
+position = Vector2(352, -125)
+animation = &"carlos"
+display_name = "Carlos"
+min_level = 4
+dialog_json = ExtResource("17_cx8w8")
+
+[node name="CustomVoice" type="AudioStreamPlayer" parent="NPCs/Carlos" unique_id=1835151124]
+stream = ExtResource("18_vcx27")
+pitch_scale = 1.5
+
 [node name="Decorations" type="Node2D" parent="." unique_id=1445640183]
 y_sort_enabled = true
 
@@ -305,7 +326,7 @@ position = Vector2(216, -155)
 display_name = "Neighbor Bob"
 lawn_template = ExtResource("9_c4pas")
 max_difficulty = 3
-level = 1
+level = 2
 wage = 3
 max_bonus = 4
 dialog_json = ExtResource("20_bmbxr")
@@ -316,7 +337,7 @@ animation = &"neighbor_jim"
 display_name = "Neighbor Jim"
 lawn_template = ExtResource("19_dys3o")
 max_difficulty = 3
-level = 2
+level = 3
 wage = 4
 max_bonus = 4
 dialog_json = ExtResource("22_7273a")
@@ -327,7 +348,7 @@ animation = &"neighbor_nancy"
 display_name = "Neighbor Nancy"
 lawn_template = ExtResource("24_xefxb")
 max_difficulty = 4
-level = 3
+level = 4
 wage = 5
 max_bonus = 4
 flower_penalty = 3
@@ -339,7 +360,7 @@ position = Vector2(344, 229)
 animation = &"neighbor_emily"
 display_name = "Neighbor Emily"
 lawn_template = ExtResource("21_dys3o")
-level = 4
+level = 5
 wage = 9
 max_bonus = 6
 flower_penalty = 3
@@ -386,10 +407,10 @@ position = Vector2(488, 229)
 animation = &"neighbor_james"
 display_name = "Neighbor James"
 lawn_template = ExtResource("11_e6rtj")
-level = 4
+level = 5
 wage = 8
 flower_penalty = 2
-dialog_json = ExtResource("33_seem0")
+dialog_json = ExtResource("35_suri1")
 
 [node name="NeighborPaul" parent="Neighbors" unique_id=745580730 instance=ExtResource("3_tqujx")]
 position = Vector2(72, 229)
@@ -402,7 +423,7 @@ animation = &"neighbor_chloe"
 display_name = "Neighbor Chloe"
 lawn_template = ExtResource("25_62p1y")
 max_difficulty = 4
-level = 3
+level = 4
 wage = 6
 use_female_voice = true
 dialog_json = ExtResource("34_7rdka")
@@ -412,7 +433,7 @@ position = Vector2(1112, 229.00002)
 animation = &"neighbor_george"
 display_name = "Neighbor George"
 lawn_template = ExtResource("37_lse0k")
-level = 4
+level = 5
 bonus_base = 2
 max_bonus = 7
 flower_penalty = 2
@@ -1246,11 +1267,11 @@ position = Vector2(-92.00001, 724)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("64_fwf17")
 
-[node name="MrManager" parent="Store" unique_id=170870513 instance=ExtResource("4_dcvy4")]
+[node name="MrManager" parent="Store" unique_id=598255067 instance=ExtResource("4_dcvy4")]
 position = Vector2(-33, 809.00006)
 animation = &"mr_manager"
 display_name = "Mr. Manager"
-min_level = 5
+min_level = 6
 dialog_json = ExtResource("65_xio3b")
 
 [node name="Martin" parent="Store" unique_id=1479892227 instance=ExtResource("4_dcvy4")]
@@ -1263,7 +1284,7 @@ dialog_json = ExtResource("65_2qen0")
 position = Vector2(16, 826.00006)
 animation = &"robot"
 display_name = "StoreCorp Robot"
-min_level = 5
+min_level = 6
 can_talk = false
 dialog_json = ExtResource("66_qqjl7")
 

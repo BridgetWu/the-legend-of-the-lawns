@@ -63,8 +63,22 @@ static var list: Array[Quest] = [
 			),
 		]
 	),
-
+	
 	# Quest 1
+	Quest.new(
+		Reward.new(
+			"$1", 
+			func(main: Main) -> void: main.money += 1
+		),
+		[
+			Goal.new(
+				"Talk to the government job man at the job board by the store.",
+				func(main: Main) -> bool: return talked_to_npc(main, "NPCs/MrGovJobMan")
+			)
+		]
+	),
+	
+	# Quest 2
 	Quest.new(
 		Reward.new(
 			"$2", 
@@ -73,7 +87,7 @@ static var list: Array[Quest] = [
 		[]
 	),
 	
-	# Quest 2
+	# Quest 3
 	Quest.new(
 		Reward.new(
 			"$3", 
@@ -82,16 +96,21 @@ static var list: Array[Quest] = [
 		[]
 	),
 
-	# Quest 3
+	# Quest 4
 	Quest.new(
 		Reward.new(
 			"$4", 
 			func(main: Main) -> void: main.money += 4
 		),
-		[]
+		[
+			Goal.new(
+				"Talk to your friend Carlos in Neighbor Nancy's yard.",
+				func(main: Main) -> bool: return talked_to_npc(main, "NPCs/Carlos")
+			)
+		]
 	),
-
-	# Quest 4
+	
+	# Quest 5
 	Quest.new(
 		Reward.new(
 			"$6",
@@ -99,12 +118,12 @@ static var list: Array[Quest] = [
 		),
 		[]
 	),
-
-	# Quest 5
+	
+	# Quest 6
 	Quest.new(
 		Reward.new(
 			"$4",
-			func(main: Main) -> void: main.money += 6
+			func(main: Main) -> void: main.money += 4
 		),
 		[
 			Goal.new(

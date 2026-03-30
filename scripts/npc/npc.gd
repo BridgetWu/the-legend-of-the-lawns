@@ -11,6 +11,7 @@ extends AnimatedSprite2D
 # Set this to false if you do not want a first time dialog
 @export var first_time: bool = true
 @export var min_level: int = -1
+@export var max_level: int = -1
 
 @export_group("Dialog")
 @export var use_female_voice: bool = false
@@ -20,6 +21,7 @@ var player_dialog: PackedStringArray = [ "Hello!" ]
 var possible_dialog: PackedStringArray = []
 @export_multiline var interact_text = ""
 @export var dialog_json: JSON
+@onready var custom_voice: AudioStreamPlayer = get_node_or_null("CustomVoice")
 
 var current_dialog: String = ""
 var player_in_area: bool = false
@@ -41,7 +43,16 @@ func generate_dialog() -> void:
 	current_dialog = possible_dialog[randi() % len(possible_dialog)]
 
 func _process(_delta: float) -> void:
-	if min_level > $/root/Main.current_level:
+	var main: Main = $/root/Main
+	if min_level > main.current_level:
+		hide()
+		$Area2D/CollisionShape2D.disabled = true
+		return
+	elif max_level < main.current_level and max_level >= 0:
+		hide()
+		$Area2D/CollisionShape2D.disabled = true
+		return
+	elif max_level == main.current_level and max_level >= 0 and Quest.get_quest(main.current_level).completed(main):
 		hide()
 		$Area2D/CollisionShape2D.disabled = true
 		return

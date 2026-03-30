@@ -154,7 +154,9 @@ func set_menu(neighbor: NeighborNPC) -> void:
 
 func set_menu_first_npc(npc: NPC, index: int) -> void:
 	if npc.can_talk and npc.first_dialog[index] != "...":
-		if npc.use_female_voice:
+		if npc.custom_voice:
+			npc.custom_voice.play()
+		elif npc.use_female_voice:
 			$/root/Main.play_sfx("FemaleTalk")
 		else:
 			$/root/Main.play_sfx("MaleTalk")
@@ -192,7 +194,9 @@ func set_npc_menu(npc: NPC) -> void:
 		set_menu_first_npc(npc, 0)
 	else:
 		if npc.can_talk and npc.current_dialog != "...":
-			if npc.use_female_voice:
+			if npc.custom_voice:
+				npc.custom_voice.play()
+			elif npc.use_female_voice:
 				$/root/Main.play_sfx("FemaleTalk")
 			else:
 				$/root/Main.play_sfx("MaleTalk")
